@@ -11,23 +11,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 export default function Row(props) {
-    const [movies, setMovies] = useState([]);
-    const url = "https://api.themoviedb.org/3/";
-    const urlData = props.url;
-    const api_key = props.api;
-    const urlFinal = `${url}${urlData}&api_key=${api_key}`;
-    useEffect(() => {
-        const getMovies = async () => {
-            try {
-                const data = await Axios.get(urlFinal);
-                setMovies(data.data.results);
-            } catch (err) {
-                console.error(err);
-            }
-        };
-        getMovies();
-    }, [urlFinal]);
-
     return (
         <div style={{ zIndex: props.z }} className={`images-outer-row-container ${props.css}-images-outer-row-container`}>
             <h1 className={`${props.css}-h1 headline`}>{props.headline}</h1>

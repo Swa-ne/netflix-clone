@@ -8,39 +8,7 @@ export default function HoverMovie(props) {
     const [releaseDate, setReleaseDate] = useState("");
     const [title, setTitle] = useState("");
     const [genres, setGenres] = useState([]);
-    const [css, setCss] = useState(`outer-hover-container hidden visibility`);
 
-    useEffect(() => {
-        setHover(props.hover);
-    }, [props.hover]);
-
-    useEffect(() => {
-        if (hover) {
-            setCss(`outer-hover-container visibility`);
-            setTimeout(() => {
-                setCss(`outer-hover-container`);
-            }, 200);
-        } else {
-            setCss(`outer-hover-container visibility`);
-            setTimeout(() => {
-                setCss(`outer-hover-container visibility hidden`);
-            }, 200);
-        }
-    }, [hover]);
-
-    useEffect(() => {
-        if (props.show === "movie") {
-            setTitle(props.item.title);
-            setGenres(props.movieGenres);
-            if (props.item.release_date) setReleaseDate(props.item.release_date.slice(0, 4));
-        } else {
-            setTitle(props.item.name);
-            setGenres(props.TVGenres);
-            if (props.item.first_air_date) setReleaseDate(props.item.first_air_date.slice(0, 4));
-        }
-    }, [props.item, props.movieGenres, props.TVGenres]);
-
-    useEffect(() => {}, [props.movieGenres, props.TVGenres]);
     return (
         <div className={css}>
             <div className="hover-container">

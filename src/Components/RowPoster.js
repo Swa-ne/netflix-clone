@@ -11,22 +11,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 export default function Row(props) {
-    const [movies, setMovies] = useState([]);
-    const url = "https://api.themoviedb.org/3/";
-    const urlData = props.url;
-    const api_key = props.api;
-    const urlFinal = `${url}${urlData}&api_key=${api_key}`;
-    useEffect(() => {
-        const getMovies = async () => {
-            try {
-                const data = await Axios.get(urlFinal);
-                setMovies(data.data.results);
-            } catch (err) {
-                console.error(err);
-            }
-        };
-        getMovies();
-    }, []);
     const rankingPoster = [
         <svg id="rank-1" width="100%" height="100%" viewBox="-20 0 70 154" className="svg-icon svg-icon-rank-1 top-10-rank">
             <path stroke="#595959" strokeLinejoin="square" strokeWidth="4" d="M35.377 152H72V2.538L2 19.362v30.341l33.377-8.459V152z"></path>

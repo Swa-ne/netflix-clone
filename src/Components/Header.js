@@ -8,24 +8,6 @@ export default function Header(props) {
     const [movies, setMovies] = useState(props.movies);
     const [overview, setOverview] = useState("");
     const [movie, setMovie] = useState([]);
-
-    useEffect(() => {
-        const getMovies = async () => {
-            try {
-                const data = await Axios.get("https://api.themoviedb.org/3/discover/movie?primary_release_year=2018&api_key=8c8250c4d7821dc09977bd3aecc6b1a5");
-                setMovies(data.data.results);
-                setMovie(data.data.results[0]);
-            } catch (err) {
-                console.error(err);
-            }
-        };
-        getMovies();
-    }, []);
-
-    useEffect(() => {
-        movie.length !== 0 ? setOverview(movie.overview.slice(0, movie.overview.indexOf(".") + 1)) : setOverview("");
-    }, [movies]);
-
     return (
         <div className="header-container">
             <img alt={movie.title} src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} />
