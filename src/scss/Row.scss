@@ -1,0 +1,104 @@
+.poster-images-outer-row-container {
+    position: relative;
+    display: block;
+    margin: 3vw 0 3vw 0; //3.9476vw;
+    height: 15vw;
+}
+.images-outer-row-container {
+    position: relative;
+    display: block;
+    margin: 3vw 0 3vw 0; //3.9476vw;
+    height: 12.5vw;
+
+    .headline {
+        position: absolute;
+        color: white;
+        top: -3vw;
+        text-indent: 4.5vw;
+    }
+    .first-h1 {
+        position: absolute;
+        color: white;
+        top: -15vw;
+    }
+    .images-row-container {
+        padding-left: 4vw;
+        .row-image {
+            display: block;
+            text-align: left;
+            width: 17.96vw;
+            height: 9.1121vw;
+            .image-banner {
+                width: 17.96vw;
+                height: 9.1121vw;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+        .row-image-poster {
+            display: block;
+            text-align: left;
+            width: 10.96vw;
+            height: 9.1121vw;
+
+            .image-poster {
+                width: 8.881vw;
+                height: 12.685vw;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            svg {
+                width: 7.98vw;
+                height: 12.827vw;
+                cursor: pointer;
+            }
+        }
+    }
+    .swiper-button-disabled {
+        opacity: 0;
+    }
+    .swiper-button-prev {
+        left: 0;
+    }
+    .swiper-button-next {
+        right: 15px;
+    }
+    [class^="swiper-button"] {
+        height: 100%;
+        color: white;
+        opacity: 0;
+        background-color: rgba(20, 20, 20, 0.7);
+        top: 22px;
+        width: 40px;
+        z-index: 1;
+    }
+    .images-row-container:hover {
+        [class^="swiper-button"] {
+            opacity: 1;
+        }
+    }
+}
+.first {
+    z-index: 11;
+    position: absolute;
+    top: -12vw;
+    margin: 0;
+}
+.first-images-outer-row-container {
+    height: 0.5vw;
+}
+.poster-images-outer-row-container {
+    height: 14.5vw;
+}
+.images-row-container-poster {
+    height: 13vw;
+    .outer-hover-container {
+        .hover-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: -2.2vw;
+            left: -3.4vw;
+        }
+    }
+}

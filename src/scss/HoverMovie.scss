@@ -1,0 +1,88 @@
+.visibility {
+    opacity: 0;
+}
+.hidden {
+    display: none;
+}
+.outer-hover-container {
+    cursor: pointer;
+    // display: block;
+    position: relative;
+    z-index: 1200;
+    height: 10vw; //192.85
+    transition: all 0.5s linear;
+
+    .hover-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -3.4vw;
+
+        .hover-image-banner {
+            position: absolute;
+            top: -12vw;
+            left: 0;
+            width: 23.847vw;
+            height: 13.001vw;
+            border-radius: 10px 10px 0 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.69);
+        }
+        .description-container {
+            position: absolute;
+            left: 0;
+            width: 23.847vw;
+            height: 8.737vw;
+            background-color: #1b1b1b;
+            border-radius: 0 0 10px 10px;
+            z-index: 1000;
+            text-align: left;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.69);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            h1 {
+                color: white;
+                // margin: .05vw;
+                font-size: 1.5vw;
+            }
+            div {
+                margin: 0.4vw 1vw;
+            }
+            .first-layer {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                span {
+                    font-weight: 300;
+                    font-size: 1vw;
+                }
+            }
+            .second-layer {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                height: 35%;
+                padding-left: 0.25vw;
+                p {
+                    font-size: 0.9vw;
+                    font-weight: 100;
+                    color: #999;
+                }
+            }
+            .third-layer {
+                p {
+                    font-size: 1.1vw;
+                    font-weight: 500;
+                    color: #ddd;
+                }
+            }
+        }
+    }
+}
