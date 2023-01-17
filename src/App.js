@@ -6,7 +6,7 @@ import Row from "./Components/Row";
 import RowPoster from "./Components/RowPoster";
 
 import "./index.scss";
-
+const api_key = "8c8250c4d7821dc09977bd3aecc6b1a5";
 function App() {
     return (
         <div className="App">
