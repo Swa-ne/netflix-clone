@@ -13,9 +13,10 @@ import "swiper/css/navigation";
 export default function Row(props) {
     const [movies, setMovies] = useState([]);
     const url = "https://api.themoviedb.org/3/";
-    const urlData = props.url;
-    const api_key = props.api;
-    const urlFinal = `${url}${urlData}&api_key=${api_key}`;
+    const [urlFinal, setUrlFinal] = useState();
+    useEffect(() => {
+        setUrlFinal(`${url}${props.url}&api_key=${props.api}`);
+    }, [props.url, props.api]);
     useEffect(() => {
         const getMovies = async () => {
             try {
@@ -26,7 +27,7 @@ export default function Row(props) {
             }
         };
         getMovies();
-    }, []);
+    }, [urlFinal]);
     const rankingPoster = [
         <svg id="rank-1" width="100%" height="100%" viewBox="-20 0 70 154" className="svg-icon svg-icon-rank-1 top-10-rank">
             <path stroke="#595959" strokeLinejoin="square" strokeWidth="4" d="M35.377 152H72V2.538L2 19.362v30.341l33.377-8.459V152z"></path>
@@ -104,17 +105,34 @@ export default function Row(props) {
             <h1 className={`${props.css}-h2 headline`}>{props.headline}</h1>
             <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y, Virtual]}
-                loop
-                spaceBetween={0}
-                initialSlide={0}
-                slidesPerView={5.2}
-                slidesPerGroup={5}
                 speed={1500}
                 navigation
-                virtual
                 pagination={{ clickable: true }}
                 className={`images-row-container images-row-container-${props.css}`}
                 style={{ overflow: "visible" }}
+                breakpoints={{
+                    0: {
+                        slidesPerView: 2.2,
+                        spaceBetween: 0,
+                        slidesPerGroup: 2,
+                    },
+                    768: {
+                        slidesPerView: 3.2,
+                        spaceBetween: 0,
+                        slidesPerGroup: 3,
+                    },
+                    1024: {
+                        slidesPerView: 4.2,
+                        spaceBetween: 0,
+                        slidesPerGroup: 4,
+                    },
+                    1100: {
+                        slidesPerView: 5.2,
+                        spaceBetween: 0,
+                        slidesPerGroup: 5,
+                        initialSlide: 1,
+                    },
+                }}
             >
                 {movies.map((item, index) => {
                     return (

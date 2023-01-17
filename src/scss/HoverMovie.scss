@@ -1,39 +1,30 @@
-.visibility {
-    opacity: 0;
-}
-.hidden {
-    display: none;
-}
+$computerScreen: 1100px;
+$laptopScreen: 1024px;
+$tabletScreen: 768px;
+$phoneScreen: 500px;
+$minComputerScreen: 1099.9px;
+$minLaptopScreen: 1023.9px;
+$minTabletScreen: 767.9px;
 .outer-hover-container {
     cursor: pointer;
-    // display: block;
+    transform: scale(0);
+    transform-origin: top center;
+    transition: all 500ms ease;
+    transition-delay: 0s;
     position: relative;
     z-index: 1200;
-    height: 10vw; //192.85
-    transition: all 0.5s linear;
 
     .hover-container {
         position: absolute;
-        width: 100%;
-        height: 100%;
         top: 0;
         left: -3.4vw;
 
         .hover-image-banner {
-            position: absolute;
-            top: -12vw;
-            left: 0;
-            width: 23.847vw;
-            height: 13.001vw;
             border-radius: 10px 10px 0 0;
             z-index: 1000;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.69);
         }
         .description-container {
-            position: absolute;
-            left: 0;
-            width: 23.847vw;
-            height: 8.737vw;
             background-color: #1b1b1b;
             border-radius: 0 0 10px 10px;
             z-index: 1000;
@@ -43,10 +34,8 @@
             flex-direction: column;
             justify-content: space-around;
 
-            h1 {
+            .movie-title {
                 color: white;
-                // margin: .05vw;
-                font-size: 1.5vw;
             }
             div {
                 margin: 0.4vw 1vw;
@@ -59,7 +48,6 @@
                 -webkit-box-orient: vertical;
                 span {
                     font-weight: 300;
-                    font-size: 1vw;
                 }
             }
             .second-layer {
@@ -70,19 +58,163 @@
                 -webkit-box-orient: vertical;
                 height: 35%;
                 padding-left: 0.25vw;
-                p {
-                    font-size: 0.9vw;
+                .movie-description {
                     font-weight: 100;
                     color: #999;
                 }
             }
             .third-layer {
-                p {
-                    font-size: 1.1vw;
+                .movie-categories {
                     font-weight: 500;
                     color: #ddd;
                 }
             }
         }
+    }
+}
+.movie-main {
+    height: 10vw;
+}
+.movie-main:hover {
+    .outer-hover-container {
+        transform: scale(1);
+        transition: all 500ms ease;
+        transition-delay: 1s;
+    }
+}
+
+@media (min-width: $computerScreen) {
+    .hover-image-banner {
+        position: absolute;
+        top: -12vw;
+        left: 0;
+        width: 23.847vw;
+        height: 13.001vw;
+    }
+    .description-container {
+        position: absolute;
+        left: 0;
+        width: 23.847vw;
+        height: 8.737vw;
+    }
+    .movie-description {
+        font-size: 0.9vw;
+    }
+    .movie-title {
+        font-size: 1.5vw;
+        span {
+            font-size: 1vw;
+        }
+    }
+    .movie-categories {
+        font-size: 1.1vw;
+    }
+}
+@media (min-width: $laptopScreen) and (max-width: $minComputerScreen) {
+    .hover-image-banner {
+        position: absolute;
+        top: -13vw;
+        left: 1.9vw;
+        width: 25vw;
+        height: 13.1vw;
+    }
+    .description-container {
+        position: absolute;
+        left: 1.9vw;
+        width: 25vw;
+        height: 10vw;
+    }
+    .movie-description {
+        font-size: 1vw;
+    }
+    .movie-title {
+        font-size: 1.5vw;
+        span {
+            font-size: 1vw;
+        }
+    }
+    .movie-categories {
+        font-size: 1.1vw;
+    }
+}
+@media (min-width: $tabletScreen) and (max-width: $minLaptopScreen) {
+    .hover-image-banner {
+        position: absolute;
+        top: -17vw;
+        left: 2.5vw;
+        width: 31vw;
+        height: 17vw;
+    }
+    .description-container {
+        position: absolute;
+        left: 2.5vw;
+        width: 31vw;
+        height: 12vw;
+    }
+    .movie-description {
+        font-size: 1.1vw;
+    }
+    .movie-title {
+        font-size: 1.5vw;
+        span {
+            font-size: 1vw;
+        }
+    }
+    .movie-categories {
+        font-size: 1.1vw;
+    }
+}
+@media (min-width: $phoneScreen) and (max-width: $minTabletScreen) {
+    .hover-image-banner {
+        position: absolute;
+        top: -24vw;
+        left: 1.8vw;
+        width: 45vw;
+        height: 25vw;
+    }
+    .description-container {
+        position: absolute;
+        left: 1.8vw;
+        width: 45vw;
+        height: 15vw;
+    }
+    .movie-description {
+        font-size: 1.4vw;
+    }
+    .movie-title {
+        font-size: 2.5vw;
+        span {
+            font-size: 1.5vw;
+        }
+    }
+    .movie-categories {
+        font-size: 1.5vw;
+    }
+}
+@media (min-width: 0) and (max-width: $phoneScreen) {
+    .hover-image-banner {
+        position: absolute;
+        top: -24vw;
+        left: 1.8vw;
+        width: 45vw;
+        height: 25vw;
+    }
+    .description-container {
+        position: absolute;
+        left: 1.8vw;
+        width: 45vw;
+        height: 15vw;
+    }
+    .movie-description {
+        font-size: 1.8vw;
+    }
+    .movie-title {
+        font-size: 2.5vw;
+        span {
+            font-size: 1.8vw;
+        }
+    }
+    .movie-categories {
+        font-size: 1.8vw;
     }
 }

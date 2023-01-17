@@ -3,6 +3,8 @@ import HoverMovie from "./HoverMovie";
 
 import Axios from "axios";
 
+import "../scss/HoverMovie.scss";
+
 function Movie(props) {
     const [hover, setHover] = useState(false);
     const [movieGenres, setMovieGenres] = useState([]);
@@ -20,7 +22,7 @@ function Movie(props) {
                 https://api.themoviedb.org/3/genre/movie/list?api_key=8c8250c4d7821dc09977bd3aecc6b1a5&language=en-US`);
                 setMovieGenres(data.data.genres);
             } catch (err) {
-                console.error(props.item.name, err);
+                console.error(err);
             }
         };
         getMovieGenres();
@@ -30,7 +32,7 @@ function Movie(props) {
                 https://api.themoviedb.org/3/genre/tv/list?api_key=8c8250c4d7821dc09977bd3aecc6b1a5&language=en-US`);
                 setTVGenres(data.data.genres);
             } catch (err) {
-                console.error(props.item.name, err);
+                console.error(err);
             }
         };
         getTVGenres();
@@ -39,13 +41,14 @@ function Movie(props) {
     return (
         <a href={`https://www.themoviedb.org/movie/${props.item.id}`}>
             <div
-                onMouseEnter={toShow}
-                onMouseLeave={() => {
-                    setHover(false);
-                    setTimeout(() => {
-                        setHover(false);
-                    }, 1002);
-                }}
+                // onMouseEnter={toShow}
+                // onMouseLeave={() => {
+                //     setHover(false);
+                //     setTimeout(() => {
+                //         setHover(false);
+                //     }, 1002);
+                // }}
+                className="movie-main"
             >
                 {props.rank ? props.rank : ""}
                 <img

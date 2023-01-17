@@ -12,14 +12,59 @@ import Profile5 from "../img/nav/profile/profile5.png";
 
 export default function Nav(props) {
     const [show, setShow] = useState("scrollup");
+    const [nav, setNav] = useState(
+        <ul className="button-container">
+            <li>Home</li>
+            <li>TV Shows</li>
+            <li>Movies</li>
+            <li>New & Popular</li>
+            <li>My List</li>
+        </ul>
+    );
     const controlNavbar = () => {
         window.pageYOffset >= 10 ? setShow("scrolldown") : setShow("scrollup");
     };
+    const controlTabBar = () => {
+        window.innerWidth >= 800
+            ? setNav(
+                  <ul className="button-container">
+                      <li className="nav-link nav-color">Home</li>
+                      <li className="nav-link nav-color">TV Shows</li>
+                      <li className="nav-link nav-color">Movies</li>
+                      <li className="nav-link nav-color">New & Popular</li>
+                      <li className="nav-link nav-color">My List</li>
+                  </ul>
+              )
+            : setNav(
+                  <div className="nav-choices-container account-button">
+                      <div className="nav-choices-dropdown-button">
+                          <div className="nav-choices-container nav-link">
+                              <h1 className="nav-button">Browse</h1>
+                          </div>
+                          <i className={`fa fa-caret-down main-caret nav-link`} aria-hidden="true"></i>
+                      </div>
+                      <div className=" nav-dropdown ">
+                          <div className="caret-container">
+                              <i className="fa fa-caret-up nav-dropdown-caret" aria-hidden="true"></i>
+                          </div>
+                          <ul className="nav-list">
+                              <li className="nav-choice nav-link active">Home</li>
+                              <li className="nav-choice nav-link">TV Shows</li>
+                              <li className="nav-choice nav-link">Movies</li>
+                              <li className="nav-choice nav-link">New & Popular</li>
+                              <li className="nav-choice nav-link">My List</li>
+                          </ul>
+                      </div>
+                  </div>
+              );
+    };
     useEffect(() => {
         window.addEventListener("scroll", controlNavbar);
+        window.addEventListener("resize", controlTabBar);
 
         return () => {
             window.removeEventListener("scroll", controlNavbar);
+            window.removeEventListener("resize", controlTabBar);
         };
     }, []);
 
@@ -28,41 +73,36 @@ export default function Nav(props) {
             <div className="nav">
                 <div className="left-container">
                     <img src={Logo} alt="NETFLIX" className="logo" />
-                    <ul className="button-container">
-                        <li>Home</li>
-                        <li>TV Shows</li>
-                        <li>Movies</li>
-                        <li>New & Popular</li>
-                        <li>My List</li>
-                    </ul>
+                    {nav}
                 </div>
                 <div className="icon-container">
-                    <i className="icon-search main-icon"></i>
-                    <i className="fa fa-bell main-icon"></i>
+                    <i className="icon-search main-icon nav-link"></i>
+                    <i className="fa fa-bell main-icon nav-link"></i>
                     <div className="account-container account-button">
                         <div className="account-dropdown-button">
-                            <div className="profile-container">
+                            <div className="profile-container nav-link">
                                 <img src={Profile} alt="Profile" />
                             </div>
-                            <i className={`fa fa-caret-down main-caret`} aria-hidden="true"></i>
+                            <i className={`fa fa-caret-down main-caret nav-link`} aria-hidden="true"></i>
                         </div>
                         <div className="dropdown-hidden account-dropdown ">
                             <i className={`fa fa-caret-up dropdown-caret`} aria-hidden="true"></i>
                             <ul className="profile-account-list">
-                                <li>
+                                <li className="nav-link">
                                     <ProfileList name="Daphne" img={Profile2} />
                                 </li>
-                                <li>
+                                <li className="nav-link">
                                     <ProfileList name="Sae-byeok" img={Profile3} />
                                 </li>
-                                <li>
+                                <li className="nav-link">
                                     <ProfileList name="Ruby" img={Profile4} />
                                 </li>
-                                <li>
+                                <li className="nav-link">
                                     <ProfileList name="Sarah" img={Profile5} />
                                 </li>
-                                <li>
+                                <li className="nav-link">
                                     <ProfileList
+                                        className="nav-link"
                                         name="Manage Profile"
                                         svg={
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="Hawkins-Icon Hawkins-Icon-Standard">
@@ -79,12 +119,13 @@ export default function Nav(props) {
                             </ul>
                             <ul className="profile-account-list" style={{ padding: "0" }}>
                                 <li>
-                                    <ProfileList name="DVD" />
+                                    <ProfileList className="nav-link" name="DVD" />
                                 </li>
                             </ul>
                             <ul className="profile-account-list">
                                 <li>
                                     <ProfileList
+                                        className="nav-link"
                                         name="Account"
                                         svg={
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="Hawkins-Icon Hawkins-Icon-Standard">
@@ -100,6 +141,7 @@ export default function Nav(props) {
                                 </li>
                                 <li>
                                     <ProfileList
+                                        className="nav-link"
                                         name="Help Center"
                                         svg={
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="Hawkins-Icon Hawkins-Icon-Standard">
@@ -114,7 +156,7 @@ export default function Nav(props) {
                                     />
                                 </li>
                             </ul>
-                            <p className="signout profile-account-list">Sign out to Netflix</p>
+                            <p className="nav-link signout profile-account-list">Sign out to Netflix</p>
                         </div>
                     </div>
                 </div>

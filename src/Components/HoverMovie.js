@@ -4,30 +4,9 @@ import "../scss/HoverMovie.scss";
 import "../scss/Row.scss";
 
 export default function HoverMovie(props) {
-    const [hover, setHover] = useState(false);
     const [releaseDate, setReleaseDate] = useState("");
     const [title, setTitle] = useState("");
     const [genres, setGenres] = useState([]);
-    const [css, setCss] = useState(`outer-hover-container hidden visibility`);
-
-    useEffect(() => {
-        setHover(props.hover);
-    }, [props.hover]);
-
-    useEffect(() => {
-        if (hover) {
-            setCss(`outer-hover-container visibility`);
-            setTimeout(() => {
-                setCss(`outer-hover-container`);
-            }, 200);
-        } else {
-            setCss(`outer-hover-container visibility`);
-            setTimeout(() => {
-                setCss(`outer-hover-container visibility hidden`);
-            }, 200);
-        }
-    }, [hover]);
-
     useEffect(() => {
         if (props.show === "movie") {
             setTitle(props.item.title);
@@ -38,24 +17,23 @@ export default function HoverMovie(props) {
             setGenres(props.TVGenres);
             if (props.item.first_air_date) setReleaseDate(props.item.first_air_date.slice(0, 4));
         }
-    }, [props.item, props.movieGenres, props.TVGenres]);
+    }, []);
 
-    useEffect(() => {}, [props.movieGenres, props.TVGenres]);
     return (
-        <div className={css}>
+        <div className={`outer-hover-container`}>
             <div className="hover-container">
                 <img alt={props.item.title} className="hover-image-banner" src={`https://image.tmdb.org/t/p/original${props.item.backdrop_path}`} />
                 <div className="description-container">
                     <div className="first-layer">
-                        <h1>
+                        <h1 className="movie-title">
                             {title} <span>({releaseDate})</span>
                         </h1>
                     </div>
                     <div className="second-layer">
-                        <p>{props.item.overview}</p>
+                        <p className="movie-description">{props.item.overview}</p>
                     </div>
                     <div className="third-layer">
-                        <p>
+                        <p className="movie-categories">
                             {props.item.genre_ids.map((itemMovieGenres, indexMovieGenres) => {
                                 return (
                                     <span key={indexMovieGenres}>

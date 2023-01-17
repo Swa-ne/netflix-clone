@@ -61,8 +61,11 @@
     .text {
         font-weight: 400;
         font-size: 1.2vw;
-        text-shadow: 2px 2px 4px rgb(0, 0, 0 / 45%);
+        text-shadow: 2px 2px 4px rgb(0, 0, 0, 45%);
         -webkit-text-size-adjust: 100%;
         font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
+}
+.clickable {
+    cursor: pointer;
 }

@@ -1,3 +1,11 @@
+$computerScreen: 1100px;
+$laptopScreen: 1024px;
+$tabletScreen: 768px;
+$phoneScreen: 500px;
+$minComputerScreen: 1099.9px;
+$minLaptopScreen: 1023.9px;
+$minTabletScreen: 767.9px;
+
 .poster-images-outer-row-container {
     position: relative;
     display: block;
@@ -21,39 +29,7 @@
         color: white;
         top: -15vw;
     }
-    .images-row-container {
-        padding-left: 4vw;
-        .row-image {
-            display: block;
-            text-align: left;
-            width: 17.96vw;
-            height: 9.1121vw;
-            .image-banner {
-                width: 17.96vw;
-                height: 9.1121vw;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-        }
-        .row-image-poster {
-            display: block;
-            text-align: left;
-            width: 10.96vw;
-            height: 9.1121vw;
 
-            .image-poster {
-                width: 8.881vw;
-                height: 12.685vw;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            svg {
-                width: 7.98vw;
-                height: 12.827vw;
-                cursor: pointer;
-            }
-        }
-    }
     .swiper-button-disabled {
         opacity: 0;
     }
@@ -61,7 +37,7 @@
         left: 0;
     }
     .swiper-button-next {
-        right: 15px;
+        right: 0px;
     }
     [class^="swiper-button"] {
         height: 100%;
@@ -90,15 +66,204 @@
 .poster-images-outer-row-container {
     height: 14.5vw;
 }
-.images-row-container-poster {
-    height: 13vw;
-    .outer-hover-container {
-        .hover-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: -2.2vw;
-            left: -3.4vw;
+@media (min-width: $computerScreen) {
+    .images-row-container {
+        padding-left: 4vw;
+        .row-image {
+            display: block;
+            text-align: left;
+            width: 17.96vw;
+            height: 9.1121vw;
+            .image-banner {
+                width: 17.96vw;
+                height: 9.1121vw;
+                border-radius: 5px;
+                z-index: 10;
+                cursor: pointer;
+            }
+        }
+        .row-image-poster {
+            display: block;
+            text-align: left;
+            width: 10.96vw;
+            height: 9.1121vw;
+
+            .image-poster {
+                width: 8.881vw;
+                height: 12.685vw;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            svg {
+                width: 7.98vw;
+                height: 12.827vw;
+                cursor: pointer;
+            }
+        }
+    }
+    .images-row-container-poster {
+        height: 13vw;
+        .outer-hover-container {
+            .hover-container {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: -2.2vw;
+                left: -3.4vw;
+            }
+        }
+    }
+}
+@media (min-width: $laptopScreen) and (max-width: $minComputerScreen) {
+    .images-row-container {
+        padding-left: 4vw;
+        .row-image {
+            display: block;
+            text-align: left;
+            width: 22vw;
+            height: 12vw;
+            .image-banner {
+                width: 22vw;
+                height: 12vw;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+        .row-image-poster {
+            display: block;
+            text-align: left;
+            width: 14vw;
+            height: 12vw;
+
+            .image-poster {
+                width: 10.5vw;
+                height: 14vw;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            svg {
+                width: 9vw;
+                height: 14vw;
+                cursor: pointer;
+            }
+        }
+    }
+    .images-row-container-poster {
+        height: 14vw;
+        .outer-hover-container {
+            .hover-container {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: -2.2vw;
+                left: -3.4vw;
+            }
+        }
+    }
+}
+@media (min-width: $tabletScreen) and (max-width: $minLaptopScreen) {
+    .images-outer-row-container {
+        height: 16vw;
+        .images-row-container {
+            padding-left: 4vw;
+            .row-image {
+                display: block;
+                text-align: left;
+                width: 29vw;
+                height: 15vw;
+                .image-banner {
+                    width: 29vw;
+                    height: 15vw;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
+            .row-image-poster {
+                display: block;
+                text-align: left;
+                width: 18vw;
+                height: 16vw;
+
+                .image-poster {
+                    width: 12vw;
+                    height: 15.5vw;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                svg {
+                    width: 11vw;
+                    height: 15.5vw;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .first-images-outer-row-container {
+        height: 4vw;
+    }
+    .images-row-container-poster {
+        height: 15.5vw;
+        .outer-hover-container {
+            .hover-container {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: -2.2vw;
+                left: -3.4vw;
+            }
+        }
+    }
+}
+@media (min-width: 0) and (max-width: $minTabletScreen) {
+    .images-outer-row-container {
+        height: 23vw;
+        .images-row-container {
+            padding-left: 4vw;
+            .row-image {
+                display: block;
+                text-align: left;
+                width: 42vw;
+                height: 21vw;
+                .image-banner {
+                    width: 42vw;
+                    height: 21vw;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
+            .row-image-poster {
+                display: block;
+                text-align: left;
+                width: 18vw;
+                height: 16vw;
+
+                .image-poster {
+                    width: 18vw;
+                    height: 22vw;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                svg {
+                    width: 17vw;
+                    height: 22vw;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .first-images-outer-row-container {
+        height: 10vw;
+    }
+    .images-row-container-poster {
+        height: 22vw;
+        .outer-hover-container {
+            .hover-container {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: -2.2vw;
+                left: -3.4vw;
+            }
         }
     }
 }

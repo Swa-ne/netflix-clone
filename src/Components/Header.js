@@ -5,7 +5,7 @@ import Axios from "axios";
 import "../scss/Header.scss";
 
 export default function Header(props) {
-    const [movies, setMovies] = useState(props.movies);
+    // const [movies, setMovies] = useState();
     const [overview, setOverview] = useState("");
     const [movie, setMovie] = useState([]);
 
@@ -13,7 +13,7 @@ export default function Header(props) {
         const getMovies = async () => {
             try {
                 const data = await Axios.get("https://api.themoviedb.org/3/discover/movie?primary_release_year=2018&api_key=8c8250c4d7821dc09977bd3aecc6b1a5");
-                setMovies(data.data.results);
+                // setMovies(data.data.results);
                 setMovie(data.data.results[0]);
             } catch (err) {
                 console.error(err);
@@ -24,7 +24,7 @@ export default function Header(props) {
 
     useEffect(() => {
         movie.length !== 0 ? setOverview(movie.overview.slice(0, movie.overview.indexOf(".") + 1)) : setOverview("");
-    }, [movies]);
+    }, [movie.length, movie.overview]);
 
     return (
         <div className="header-container">
@@ -32,7 +32,7 @@ export default function Header(props) {
             <div className="leftside-description text">
                 <span>{overview}</span>
                 <div className="header-button-container">
-                    <button className="header-button">
+                    <button className="header-button clickable">
                         <div className="svg-container">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="Hawkins-Icon Hawkins-Icon-Standard">
                                 <path
@@ -43,7 +43,7 @@ export default function Header(props) {
                         </div>
                         <span>Play</span>
                     </button>
-                    <button className="header-button more-info">
+                    <button className="header-button more-info clickable">
                         <div className="svg-container">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="Hawkins-Icon Hawkins-Icon-Standard">
                                 <path
