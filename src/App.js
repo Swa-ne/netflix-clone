@@ -7,7 +7,6 @@ import RowPoster from "./Components/RowPoster";
 
 import "./index.scss";
 
-const api_key = "8c8250c4d7821dc09977bd3aecc6b1a5";
 function App() {
     return (
         <div className="App">
@@ -15,7 +14,7 @@ function App() {
             <div className="main-view">
                 <Header />
                 <Row type="banner" show="movie" z={300} headline="Popular Movies" css="first" api={api_key} url="discover/movie?sort_by=popularity.desc" />
-                {/* <RowPoster type="poster" show="movie" z={299} css="poster" headline="Top 10 Movies from 2019" api={api_key} url="discover/movie?primary_release_year=2019" /> */}
+                <RowPoster type="poster" show="movie" z={299} css="poster" headline="Top 10 Movies from 2019" api={api_key} url="discover/movie?primary_release_year=2019" />
                 <Row type="banner" show="movie" z={298} headline="Highest Rated R Movies" api={api_key} url="discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc" />
                 <Row type="banner" show="movie" z={297} css="poster" headline="Best Movies of Chris Hemsworth" api={api_key} url="discover/movie?with_people=74568&sort_by=vote_average.desc" />
                 <Row type="banner" show="tv" z={296} headline="TV Shows Airing Today" api={api_key} url="tv/airing_today?&language=en-US&page=1" />
